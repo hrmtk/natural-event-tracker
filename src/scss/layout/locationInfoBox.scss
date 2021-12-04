@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+.location-info-box {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  background-color: white;
+  color: $primary-color;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 10px 5px 5px gray;
+  z-index: 3;
+  @include transition-ease;
+
+  @include media('<=s-desktop') {
+    left: 10px;
+  }
+
+  @include media('<=tablet') {
+    font-size: .8em;
+  }
+
+  @include media('<=l-phone') {
+    font-size: .5em;
+  }
+
+  ul {
+      list-style-type: none;
+      text-align: left;
+      padding: 3px 10px;
+
+      li {
+        line-height: 20px;
+        margin: 2px;
+      }
+  }
+}

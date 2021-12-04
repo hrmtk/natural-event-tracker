@@ -1,0 +1,42 @@
+@use "../abstracts/config" as *;
+
+.location-icon {
+  font-size: 1.5rem;
+  color: $red;
+}
+
+.dust {
+  color: $light-brown;
+}
+
+.floods {
+  color: $light-blue;
+}
+
+.landslides {
+  color: $brown;
+}
+
+.manmade {
+  color: $purple;
+}
+
+.ice {
+  color: $light-blue;
+}
+
+.storm {
+  color: $purple;
+}
+
+.snow {
+  color: $snowman;
+}
+
+.wildfires {
+  color: $light-red;
+}
+
+.water-color {
+  color: $light-purple;
+}

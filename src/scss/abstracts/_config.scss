@@ -1,0 +1,16 @@
+$primary-color: #353839;
+$secondary-color: snow;
+$background-color: rgba(122, 119, 118, 0.5);
+$light-brown: peru;
+$light-blue: #6495ed;
+$lemon: #fff44f;
+$brown: chocolate;
+$purple: #7b68ee;
+$snowman: powderblue;
+$red: crimson;
+$light-red: #ff6961;
+$light-purple: #cc00cc;
+
+@mixin transition-ease {
+  transition: all 2s ease;
+}

@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+
+.category {
+  z-index: 4;
+  
+  button {
+    width: 120px;
+    height: 36px;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-size: 13px;
+    background-color: $secondary-color;
+    transition: all .3s ease;
+
+    @include media('<=s-desktop') {
+      width: 100px;
+      height: 27px;
+      font-size: 10px;
+    }
+    
+    @include media('<=l-phone') {
+      width: 80px;
+      height: 20px;
+      font-size: 8px;
+    }
+    
+    &.active {
+      background-color: $primary-color;
+      color: $secondary-color;
+    }
+
+    &:hover {
+      background-color: wheat;
+      color: $primary-color;
+    }
+  }
+}
