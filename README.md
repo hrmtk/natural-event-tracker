@@ -1,5 +1,5 @@
 ## Natural Event Tracker 🌏
-A web app for showing natural events using React, NASA EONET API, and Google Map API. The user can choose several events to show and limit the number of prior days from which events will be returned.
+A web app for showing natural events using React, NASA EONET API, and Google Maps API. The user can choose several events to show and limit the number of prior days from which events will be returned.
 
 ### Examples of use
 <p align="center">
