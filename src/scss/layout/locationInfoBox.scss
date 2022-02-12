@@ -2,8 +2,8 @@
 
 .location-info-box {
   position: absolute;
-  top: 50px;
-  left: 20px;
+  top: 60px;
+  right: 20px;
   background-color: white;
   color: $primary-color;
   font-family: 'Poppins', sans-serif;
@@ -11,16 +11,10 @@
   z-index: 3;
   @include transition-ease;
 
-  @include media('<=s-desktop') {
-    left: 10px;
-  }
-
   @include media('<=tablet') {
-    font-size: .8em;
-  }
-
-  @include media('<=l-phone') {
-    font-size: .5em;
+    top: 70px;
+    right: 0;
+    margin: 0.5rem 1rem;
   }
 
   ul {

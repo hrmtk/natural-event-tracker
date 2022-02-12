@@ -1,0 +1,17 @@
+@use "../abstracts" as *;
+
+.days {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    select {
+        width: 80%;
+        height: 2rem; 
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+}

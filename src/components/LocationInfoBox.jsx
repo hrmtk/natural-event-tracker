@@ -1,4 +1,4 @@
-import "../scss/layout/locationInfoBox.scss"
+import "../scss/layout/locationInfoBox.scss";
 
 const LocationInfoBox = ({ info }) => {
   const {id, title, date} = info

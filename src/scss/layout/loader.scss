@@ -1,46 +1,68 @@
 @use "../abstracts" as *;
 
 .loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+}
 
-  h2 {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    font-family: 'Poppins', sans-serif;
-    font-size: 3em;
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: gray;
+  box-shadow: 30px 0 0 $primary-color;
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: $primary-color;
+  box-shadow: 30px 0 0 gray;
+}
 
-    &:nth-child(1) {
-      color: transparent;
-      -webkit-text-stroke: 2px $background-color;
-    }
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8) }
+  50% { transform: rotate(360deg) scale(1.2) }
+  100% { transform: rotate(720deg) scale(0.8) }
+}
 
-    &:nth-child(2) {
-      color: $primary-color;
-      animation: animate 1s ease-in-out infinite;
-    }
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 $primary-color;
+  }
+  50% {
+    box-shadow: 0 0 0 $primary-color;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 $primary-color;
+    margin-bottom: 10px;
+  }
+}
 
-    @keyframes animate {
-
-      0%, 100% {
-        clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
-      }
-
-      50% {
-        clip-path: polygon(0 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
-      }
-    }
-    
-    @include media('<=s-desktop') {
-      font-size: 2.5em;
-    }
-
-    @include media('<=l-phone') {
-      font-size: 1.7em;
-    }
-
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 gray;
+  }
+  50% {
+    box-shadow: 0 0 0 gray;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 gray;
+    margin-top: 0;
   }
 }

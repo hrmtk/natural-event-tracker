@@ -1,12 +1,11 @@
-import {useState} from 'react'
-import '../scss/layout/map.scss'
-import GoogleMapReact from 'google-map-react'
-import LocationInfoBox from './LocationInfoBox'
-import LocationMarker from './LocationMarker'
+import { useState } from 'react';
+import GoogleMapReact from 'google-map-react';
+import LocationInfoBox from './LocationInfoBox';
+import LocationMarker from './LocationMarker';
+import '../scss/layout/map.scss';
 
 const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null)
-
   const markers = eventData.map(event => {
     return event.geometry.map(point => {
       const id = `${point.date}-${point.coordinates}`

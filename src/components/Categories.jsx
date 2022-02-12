@@ -1,5 +1,5 @@
-import "../scss/layout/category.scss"
-import Category from "./Category"
+import "../scss/layout/category.scss";
+import Category from "./Category";
 
 const Categories = ({ showEvent, onClick }) => {
   

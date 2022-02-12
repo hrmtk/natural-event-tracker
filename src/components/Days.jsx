@@ -1,3 +1,5 @@
+import "../scss/layout/days.scss";
+
 const Days = ({ days, setDays }) => {
   return (
     <div className="days">

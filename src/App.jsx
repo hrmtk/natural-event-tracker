@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
-import { categoryData } from './data';
 import axios from 'axios';
+import { Icon } from '@iconify/react';
+import { categoryData } from './data';
 import './scss/App.scss';
 import Categories from './components/Categories';
 import Days from './components/Days';
 import Map from './components/Map';
 import Loader from './components/Loader';
 
-const allCategories = categoryData.map(event => event.id)
+const allCategories = categoryData.map(event => ({name: event.id, icon: event.icon, class: event.class}))
 
 function App() {
-  const initialValue = allCategories.map(i => ({name: i, active: false}))
+  const initialValue = allCategories.map(event => ({name: event.name, icon: event.icon, class: event.class, active: false}))
   initialValue[12]['active'] = true
 
   const [showEvent, setShowEvent] = useState(initialValue)
@@ -43,19 +44,30 @@ function App() {
 
   return (
     <div className="app">
-        <div className="title">
-          <h2>Natural Event Tracker</h2>
+      <div className="sidebar">
+        <p>Natural Event Tracker</p>
+        <Days className="days" days={days} setDays={setDays} />
+        <Categories showEvent={showEvent} onClick={clickHandler} />
+      </div>
+      <div className="navbar">
+        <Icon icon="ant-design:menu-unfold-outlined" className="hamburger" onClick={() => setOpenMenu(true)} />
+        <h2>Natural Event Tracker</h2>
+        <div></div>
+      </div>
+      {openMenu && (
+        <div className="menu">
+          <div className="menu-title">
+            <p>Natural Event Tracker</p>
+            <Icon icon="charm:circle-cross" className="close" onClick={() => setOpenMenu(false)} />
+          </div>
+          <Days className="days" days={days} setDays={setDays} />
+          <Categories showEvent={showEvent} onClick={clickHandler} />
         </div>
-        <div className="menu-toggle"  onClick={() => setOpenMenu(!openMenu)}>
-          <div className={"menu-open " + (openMenu && "active")}>category</div>
-          <div className={"menu-close " + (openMenu && "active")}>X</div>
-        </div>
-        <div className={"menu " +  (openMenu && "active")}>
-          <Days className={"days"} days={days} setDays={setDays}/>
-          <Categories className={"categories-menu " + (openMenu && "active")} showEvent={showEvent} onClick={clickHandler} />
-        </div>
-        <Map eventData={eventData} />
-        {!loading && <Loader />}
+      )
+      }
+      
+      <Map eventData={eventData} />
+      {!loading && <Loader />}
     </div>
   );
 }

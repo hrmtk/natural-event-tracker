@@ -1,13 +1,23 @@
 @use "./abstracts" as *;
+@keyframes slide {
+  from{left: -1000px;}
+  to{left: 0;}
+}
 
 .app {
   background-color: $secondary-color;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-  .title {
+  @include media('>=tablet') {
+    flex-direction: row;
+  }
+
+  .navbar {
     width: 100%;
-    height: 40px;
+    height: 60px;
     background-color: $background-color;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -16,104 +26,84 @@
     text-align: center;
     z-index: 3;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    @include media('<=tablet') {
-      height: 30px;
+    @include media('>=tablet') {
+      display: none;
     }
 
     h2 {
-      color: white;
+      color: $secondary-color;
 
       @include media('<=tablet') {
         font-size: 20px;
       }
     }
+
+    .hamburger {
+      margin-left: 1rem;
+      font-size: 1.5rem;
+      color: $secondary-color;
+      cursor: pointer;
+    }
   }
 
-  .menu-toggle {
-    width: 160px;
-    height: 40px;
-    background-color: $background-color;
-    position: absolute;
-    top: 135px;
-    left: 20px;
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    
-    @include media('<=s-desktop') {
-      width: 140px;
-      height: 35px;
-      left: 10px;
-      font-size: 15px;
-    }
-    
-    @include media('<=l-phone') {
-      width: 120px;
-      height: 20px;
-      font-size: 11px;
-    }
-    
-    .menu-open {
-      display: none;
-      color: white;
-      
-      &.active {
-        display: block;
-      }
+  .sidebar {
+    height: 100%;
+    min-width: 210px;
+    background-color: white;
+
+    p {
+      height: 60px;
+      background-color: $background-color;
+      color: $secondary-color;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .menu-close {
-      display: block;
-      color: white;
-      
-      &.active {
-        display: none;
-      }
+    @include media('<=tablet') {
+      display: none;
     }
   }
 
   .menu {
-    width: 160px;
-    height: 560px;
-    position: absolute;
-    top: 135px;
-    left: 20px;
-    background-color: $background-color;
-    box-shadow: 7px 3px 3px gray;
+    position: fixed;
+    width: 70%;
+    min-width: 210px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 3;
-    @include transition-ease;
+    background-color: white;
+    z-index: 10;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    animation-name: slide;
+    animation-duration: 1s;
 
-    &.active {
-      top: -900px;
-    }
+    .menu-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
 
-    @include media('<=s-desktop') {
-      width: 140px;
-      height: 450px;
-      left: 10px;
-    }
+      p {
+        font-size: 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        color: $primary-color;
+      }
 
-    @include media('<=l-phone') {
-      width: 120px;
-      height: 350px;
-    }
-
-    .days {
-      margin-bottom: 10px;
-
-      @include media('<=l-phone') {
-        margin-bottom: 4px;
+      .close {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.25rem;
+        cursor: pointer;
       }
     }
-
   }
 }
