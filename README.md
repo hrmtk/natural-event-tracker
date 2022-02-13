@@ -6,7 +6,7 @@ A web app for showing natural events using React, NASA EONET API, and Google Map
   <img src="./NET.gif" alt="NET" />
 </p>
 
-* [Video Demo](https://youtu.be/EHqpn9Xm5ZY)
+* [Video Demo](https://youtu.be/CGv2WdZYz0w)
 * [Live Demo](https://hrmtk-naturaleventtracker.netlify.app)🔥 - The app has been deployed to Netlify.
 
 ### Technologies
